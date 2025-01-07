@@ -13,12 +13,14 @@ public class HorseBarn {
      */
     public HorseBarn(int numStalls) {
         /* to be implemented in part (a) */
+        stalls = new Horse[numStalls];
     }
 
     /** Assigns stalls to reference sampleHorses
      */
     public HorseBarn(Horse[] sampleStalls) {
         /* to be implemented in part (a) */
+        stalls = sampleStalls;
     }
 
     /** Getter/accessor method for stalls
@@ -26,12 +28,23 @@ public class HorseBarn {
      *  @return  a references to the stalls array
      */
     // to be added in part (a)
+    public Horse[] getStalls() {
+        return stalls;
+    }
 
     /** Returns a string that shows which horses are in which stalls
      */
     public String horseBarnInfo() {
         /* to be implemented in part (b) */
-        return "";
+        StringBuilder info = new StringBuilder();
+        for(int i = 0; i < stalls.length; i++) {
+            if(stalls[i] == null) {
+                info.append("Stall ").append(i).append(": Empty\n");
+            } else {
+                info.append("Stall ").append(i).append(": ").append(stalls[i].horseInfo()).append("\n");
+            }
+        }
+        return info.toString();
     }
 
     /** Places a Horse into stalls at the index indicated by stall
@@ -43,6 +56,7 @@ public class HorseBarn {
      */
     public void placeHorse(Horse horse, int stall) {
         /* to be implemented in part (c) */
+        stalls[stall] = horse;
     }
 
     /** Returns the index of the stall that contains the horse with the specified name.

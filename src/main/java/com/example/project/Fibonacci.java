@@ -15,12 +15,19 @@ public class Fibonacci {
     */
   public Fibonacci(int seqLen) {
     /* implement me */
+    sequence = new int[seqLen];
+    sequence[0] = 0;
+    sequence[1] = 1;
+    for(int i = 2; i < seqLen; i++) {
+      sequence[i] = sequence[i - 1] + sequence[i - 2];
+    }
   }
 
   /** Getter method: returns a reference to the sequence array
     */
   public int[] getSequence() {
     /* implement me */
+    return sequence;
   }
 
   /** Returns the index in the array where a particular value, searchVal, is
@@ -30,6 +37,14 @@ public class Fibonacci {
    */
   public int getIndexOf(int searchVal) {
     /* implement me */
+    int count = 0;
+      for(int i = 0; i < sequence.length; i++) {
+          if(sequence[i] == searchVal) {
+              return count;
+          }
+          count++;
+      }
+      return -1;
   }
 
   /** Assigns sequence to a new array that extends the current sequence by
@@ -41,6 +56,14 @@ public class Fibonacci {
    */
   public void extendBy(int howManyMore) {
     /* implement this method */
+      int current = sequence.length;
+      int[] newSeq = new int[sequence.length + howManyMore];
+      for(int i = 0; i < current; i++) {
+          newSeq[i] = sequence[i];
+      }
+      for(int i = current; i < newSeq.length; i++) {
+          newSeq[i] = newSeq[i - 1] + newSeq[i - 2];
+      }
   }
 
   /** Returns a string that represents the sequence array nicely formatted, for
@@ -50,5 +73,6 @@ public class Fibonacci {
    */
   public String fibonacciString() {
     /* implement this method using the utility class */
+      return ArrayPrinter.printableString(sequence);
   }
 }
