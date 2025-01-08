@@ -9,14 +9,20 @@ public class Point {
     this.y = y;
   }
 
-
-  public void setX() {
-      this.x = x;
+  public int getX() {
+    return x;
   }
 
+  public int getY() {
+    return y;
+  }
 
-  public void setY() {
-      this.y = y;
+  public void setX(int newX) {
+    x = newX;
+  }
+
+  public void setY(int newY) {
+    y = newY;
   }
  
   // Returns distance between this Point object and another Point object

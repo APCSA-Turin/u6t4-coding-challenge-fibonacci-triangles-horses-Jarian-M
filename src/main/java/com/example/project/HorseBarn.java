@@ -69,7 +69,12 @@ public class HorseBarn {
      */
     public int findHorseStall(String name) {
         /* to be implemented in part (d) */
-        return 0;
+        for(int i = 0; i < stalls.length; i++) {
+            if(name.equals(stalls[i].getName())) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** Consolidates the barn by moving horses so that the horses are in adjacent
@@ -79,5 +84,13 @@ public class HorseBarn {
      */
     public void consolidate() {
         /* to be implemented in part (e) */
+        for(int i = 0; i < stalls.length; i++) {
+            if(stalls[i] == null) {
+                for(int j = findHorseStall(stalls[i].getName()); j < stalls.length; j++) {
+
+                }
+            }
+
+        }
     }
 }
