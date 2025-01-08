@@ -84,13 +84,14 @@ public class HorseBarn {
      */
     public void consolidate() {
         /* to be implemented in part (e) */
+        horse[] temp = new horse[stalls];
+        int count = 0;
         for(int i = 0; i < stalls.length; i++) {
-            if(stalls[i] == null) {
-                for(int j = findHorseStall(stalls[i].getName()); j < stalls.length; j++) {
-
-                }
+            if(stalls[i] != null) {
+                temp[count] = stalls[i];
+                count++;
             }
-
         }
+        stalls = temp;
     }
 }
