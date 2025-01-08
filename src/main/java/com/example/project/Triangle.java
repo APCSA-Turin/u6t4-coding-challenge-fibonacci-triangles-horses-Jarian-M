@@ -26,7 +26,11 @@ public class Triangle {
   }
 
   public Point getP3() {
-    return p2;
+    return p3;
+  }
+
+  public Point[] getVertices() {
+    return vertices;
   }
 
   public void setP1(int x, int y) {

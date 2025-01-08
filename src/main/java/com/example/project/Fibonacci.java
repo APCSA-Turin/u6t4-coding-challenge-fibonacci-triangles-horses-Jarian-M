@@ -64,6 +64,7 @@ public class Fibonacci {
       for(int i = current; i < newSeq.length; i++) {
           newSeq[i] = newSeq[i - 1] + newSeq[i - 2];
       }
+      sequence = newSeq;
   }
 
   /** Returns a string that represents the sequence array nicely formatted, for

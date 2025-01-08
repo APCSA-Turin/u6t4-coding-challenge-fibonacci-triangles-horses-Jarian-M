@@ -35,7 +35,7 @@ public class Point {
   // Returns a string in the format: (x, y)
   public String pointInfo() {
    /* IMPLEMENT ME */
-      String pt = "(" + x + "," + y + ")";
+      String pt = "(" + x + ", " + y + ")";
       return pt;
   }
 }

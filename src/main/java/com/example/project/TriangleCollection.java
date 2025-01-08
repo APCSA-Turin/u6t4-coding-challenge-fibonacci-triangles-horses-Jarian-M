@@ -33,8 +33,10 @@ public class TriangleCollection {
       collection = new Triangle[numTriangles];
       Point p1 = new Point(-startX, 0);
       Point p2 = new Point(0, startY);
-      for(int i = 0; i < numTriangles; i++) {
-          Point p3 = new Point(startX - 1, 0);
+      Point p3 = new Point(startX, 0);
+      collection[0] = new Triangle(p1, p2, p3);
+      for(int i = 1; i < numTriangles; i++) {
+          p3 = new Point(startX - i, 0);
           collection[i] = new Triangle(p1, p2, p3);
       }
   }
@@ -55,12 +57,10 @@ public class TriangleCollection {
   // ADD GETTER AND SETTER METHODS TO OTHER CLASSES AS NECESSARY
   public void shiftTriangles(int increment) {
     /* IMPLEMENT ME */
+    collection[0].setP1(collection[0].getP1().getX() + increment, collection[0].getP1().getY() + increment);
+    collection[0].setP2(collection[0].getP2().getX() + increment, collection[0].getP2().getY() + increment);
     for(int i = 0; i < collection.length; i++) {
-      for(int j = 0; j < 3; j++) {
-        collection[i].setP1(collection[i].getP1().getX() + increment, collection[i].getP1().getY() + increment);
-        collection[i].setP2(collection[i].getP2().getX() + increment, collection[i].getP2().getY() + increment);
-        collection[i].setP3(collection[i].getP3().getX() + increment, collection[i].getP3().getY() + increment);
-      }
+      collection[i].setP3(collection[i].getP3().getX() + increment, collection[i].getP3().getY() + increment);
     }
   }
 
@@ -76,11 +76,9 @@ public class TriangleCollection {
     /* IMPLEMENT ME */
     String collect = "";
     for(int i = 0; i < collection.length; i++) {
-      for(int j = 0; j < 3; j++) {
-        collect += "[" + collection[i].getP1().pointInfo() + ", ";
-        collect += collection[i].getP2().pointInfo() + ", ";
-        collect += collection[i].getP3().pointInfo() + "]" + "\n";
-      }
+      collect += "[" + collection[i].getP1().pointInfo() + ", ";
+      collect += collection[i].getP2().pointInfo() + ", ";
+      collect += collection[i].getP3().pointInfo() + "]" + "\n";
     }
     return collect;
   }

@@ -70,8 +70,10 @@ public class HorseBarn {
     public int findHorseStall(String name) {
         /* to be implemented in part (d) */
         for(int i = 0; i < stalls.length; i++) {
-            if(name.equals(stalls[i].getName())) {
-                return i;
+            if(stalls[i] != null) {
+                if(name.equals(stalls[i].getName())) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -84,7 +86,7 @@ public class HorseBarn {
      */
     public void consolidate() {
         /* to be implemented in part (e) */
-        horse[] temp = new horse[stalls];
+        Horse[] temp = new Horse[stalls.length];
         int count = 0;
         for(int i = 0; i < stalls.length; i++) {
             if(stalls[i] != null) {
